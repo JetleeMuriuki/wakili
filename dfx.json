@@ -1,0 +1,34 @@
+{
+  "canisters": {
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    },
+    "wakili_backend": {
+      "candid": "src/wakili_backend/wakili_backend.did",
+      "package": "wakili_backend",
+      "type": "rust",
+      "dependencies": ["internet_identity"]
+    },
+    "wakili_frontend": {
+      "dependencies": ["wakili_backend", "internet_identity"],
+      "source": ["src/dist/wakili_frontend/"],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

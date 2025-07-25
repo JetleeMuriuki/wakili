@@ -1,0 +1,28 @@
+{
+  "name": "wakili_frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "prebuild": "dfx generate",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview --port 3000",
+    "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\""
+  },
+  "dependencies": {
+    "@dfinity/agent": "^3.0.2",
+    "@dfinity/candid": "^3.0.2",
+    "@dfinity/principal": "^3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "vite": "^4.3.9",
+    "typescript": "^5.1.3",
+    "sass": "^1.63.6"
+  }
+}
