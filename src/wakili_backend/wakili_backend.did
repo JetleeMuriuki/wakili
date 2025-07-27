@@ -1,3 +1,28 @@
+type LegalRequest = record {
+  prompt : text;
+  document_type : opt text;
+  context : opt text;
+  is_confidential : opt bool;
+};
+
+type LegalResponse = record {
+  response : text;
+  document : opt text;
+  status : text;
+  request_id : opt text;
+};
+
+type UserProfile = record {
+  name : opt text;
+  document_count : nat32;
+  last_active : nat64;
+};
+
 service : {
-    "greet": (text) -> (text) query;
+  generate_legal_advice : (LegalRequest) -> (variant { Ok : LegalResponse; Err : text });
+  generate_legal_document : (LegalRequest) -> (variant { Ok : LegalResponse; Err : text });
+  get_document : (text) -> (variant { Ok : text; Err : text }) query;
+  get_user_documents : () -> (variant { Ok : vec record { text; text }; Err : text }) query;
+  get_user_profile : () -> (variant { Ok : UserProfile; Err : text }) query;
+  update_user_name : (text) -> (variant { Ok : null; Err : text });
 }
